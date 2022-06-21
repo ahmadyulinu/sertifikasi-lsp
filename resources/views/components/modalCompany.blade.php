@@ -16,7 +16,7 @@
                         <label for="image" class="input-group">Photo</label>
                         <a onclick="clickfunct()">
                         <img src="https://via.placeholder.com/350" id="imgAdd" alt="" class="img-fluid text-center" style="max-width:250 px; max-height:300px;"></a>
-                        <input type="file" onchange="change(event)" id="photoAdd" class="form-control" name="logo" hidden>
+                        <input type="file" onchange="change(event)" id="logoAdd" class="form-control" name="logo" hidden>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -44,9 +44,9 @@
                     </div>
                     <div class="input-group mb-3 justify-content-center">
                         <label for="image" class="input-group">Photo</label>
-                        <a onclick="clickfunct()">
+                        <a onclick="clickfunct2()">
                         <img src="https://via.placeholder.com/350" id="imgEdit" alt="" class="img-fluid text-center" style="max-width:250 px; max-height:300px;"></a>
-                        <input type="file" onchange="change(event)" id="logoEdit" class="form-control" name="logo" hidden>
+                        <input type="file" onchange="change2(event)" id="logoEdit" class="form-control" name="logo" hidden>
                     </div>
                 </div>
                 <div class="modal-footer">

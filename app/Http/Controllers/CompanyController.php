@@ -31,7 +31,7 @@ class CompanyController extends Controller
         if ($request->file('logo')) {
             CO::where('id', $id)->update([
                 'name' => $request->name,
-                'photo' => $request->file('logo')->store('company-profile')
+                'logo' => $request->file('logo')->store('company-profile')
             ]);
         } else {
             CO::where('id', $id)->update([

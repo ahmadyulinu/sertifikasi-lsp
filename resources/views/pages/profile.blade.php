@@ -37,7 +37,9 @@
 @include('components.modalCompany')
 @include('components.modalDelete')
 <script>
-   
+
+    var source = <?php echo $json; ?>;
+    
     $("#editLogo").on('show.bs.modal', function(e) {
         console.log('triggered');
         // Extract info from data-bs-* attributes
@@ -49,19 +51,28 @@
 
         var filtered_data = source.filter(final);
         $("#nameEdit").val(filtered_data[0].name);
-        $("#imgEdit").attr('src', '/storage/' + filtered_data[0].photo);
+        $("#imgEdit").attr('src', '/storage/' + filtered_data[0].logo);
 
 
-        $("#formUpdate").attr('action', `${path}/admin/products/update/`+recipient);
+        $("#formUpdate").attr('action', `${path}/admin/profile/update/`+recipient);
     });
     
     function clickfunct() {
-        $("#photoAdd").click();
+        $("#logoAdd").click();
+        console.log('terklik');
+    };
+
+    function clickfunct2() {
+        $("#logoEdit").click();
         console.log('terklik');
     };
 
     function change(event) {
       $("#imgAdd").attr('src', URL.createObjectURL(event.target.files[0]));
+    };
+
+    function change2(event) {
+      $("#imgEdit").attr('src', URL.createObjectURL(event.target.files[0]));
     };
 
     
