@@ -1,8 +1,9 @@
 @extends('index')
 @section('content')
-<h1 class="text-center text-white bg-primary"> <i class="fa-solid fa-apartment"></i>Selamat Datang!</h1>
-@foreach($data as $x)
-<h1>{{$x->katapengantar}}</h1>
-@endforeach
-
+<div class="contacts m-4 bg-white rounded">
+    <div class="row m-2 p-2">
+        <h3>Selamat Datang di MyMotors</h3>
+        <h4>Silahkan pilih dari menu di Navbar/Sidebar</h4>
+    </div>
+</div>
 @endsection

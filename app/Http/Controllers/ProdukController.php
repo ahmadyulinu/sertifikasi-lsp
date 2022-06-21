@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
-use GuzzleHttp\Handler\Proxy;
+use App\Models\Produk as PD;
+use App\Models\Company as CO;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,58 +14,56 @@ class ProdukController extends Controller
     //
     public function products()
     {
-        $products = Produk::all();
+        $products = PD::all();
+        $company = CO::first()->get();
         return view('pages/products', [
             'products' => $products,
-        ]);
+            'json' => json_encode($products),
+            'company' => $company
+        ]); 
     }
 
     public function create(Request $request)
     {
         $file = $request->file('image');
-        // $file = Input::file($request->image);
-        DB::table('produks')->insert([
+        PD::insert([
             'name' => $request->name,
             'price' => $request->price,
             'desc' => $request->desc,
             'photo' => $request->file('image')->store('product-image')
         ]);
 
-        return redirect('/products');
+        return redirect()->route('products');
     }
 
-    public function edit($id)
-    {
-        $products = Produk::find($id);
-        return view('pages/editProduk', [
-            'products' => $products
-        ]);
-    }
+    
 
     public function update(Request $request, $id)
     {
         if ($request->file('image')) {
-            DB::table('produks')->where('id', $id)->update([
+            PD::where('id', $id)->update([
                 'name' => $request->name,
                 'price' => $request->price,
                 'desc' => $request->desc,
                 'photo' => $request->file('image')->store('product-image')
             ]);
         } else {
-            DB::table('produks')->where('id', $id)->update([
+            PD::where('id', $id)->update([
                 'name' => $request->name,
                 'price' => $request->price,
                 'desc' => $request->desc,
             ]);
         }
 
-        return redirect('/products');
+        return redirect()->route('products');
+
     }
     public function delete($id)
     {
-        $produk = Produk::find($id);
+        $produk = PD::find($id);
 
         $produk->delete();
-        return redirect('products');
+        return redirect()->route('products');
+
     }
 }
