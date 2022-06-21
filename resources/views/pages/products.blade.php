@@ -59,18 +59,19 @@
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <label for="name" class="input-group">Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="CBR-150" name='name'>
+                        <input type="text" id="name" class="form-control" placeholder="Nama motor..." name='name'>
                     </div>
                     <div class="input-group mb-3">
                         <label for="price" class="input-group">Price</label>
-                        <input type="text" id="name" class="form-control" placeholder="Rp. 19.000.000" name='price'>
+                        <input type="text" id="name" class="form-control" placeholder="Harga motor..." name='price'>
                     </div>
                     <div class="input-group mb-3">
                         <label for="desc" class="input-group">Description</label>
-                        <input type="text" id="name" class="form-control" placeholder="Produk terbaru dari Honda" name='desc'>
+                        <input type="text" id="name" class="form-control" placeholder="Deskripsi produk..." name='desc'>
                     </div>
                     <div class="input-group mb-3 justify-content-center">
-                        <label for="image" class="input-group">Photo</label>                        <input type="file" id="name" class="form-control" name="image" hidden>
+                        <label for="image" class="input-group">Photo</label>                        <input onchange="change2(event)"type="file" id="photoAdd" class="form-control" name="image" hidden>
+                        <a onclick="clickfunct2()">
                         <img src="https://via.placeholder.com/350" id="imgAdd" alt="" class="img-fluid text-center" style="max-width:250 px; max-height:300px;">
                         </a>
                     </div>
@@ -97,15 +98,15 @@
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <label for="name" class="input-group">Name</label>
-                        <input type="text" id="nameEdit" class="form-control" placeholder="CBR-150" name='name'>
+                        <input type="text" id="nameEdit" class="form-control" placeholder="Nama motor..." name='name'>
                     </div>
                     <div class="input-group mb-3">
                         <label for="price" class="input-group">Price</label>
-                        <input type="text" id="priceEdit" class="form-control" placeholder="Rp. 19.000.000" name='price'>
+                        <input type="text" id="priceEdit" class="form-control" placeholder="Harga motor..." name='price'>
                     </div>
                     <div class="input-group mb-3">
                         <label for="desc" class="input-group">Description</label>
-                        <input type="text" id="descriptionEdit" class="form-control" placeholder="Produk terbaru dari Honda" name='desc'>
+                        <input type="text" id="descriptionEdit" class="form-control" placeholder="Deskripsi produk..." name='desc'>
                     </div>
                     <div class="input-group mb-3">
                         <label for="image" class="input-group">Photo Saat Ini</label>
