@@ -8,9 +8,8 @@ use App\Models\Company as CO;
 
 class ArtikelController extends Controller
 {
-    //
-    public function artikel()
-    {
+    public function artikel() {
+    
         $articles = AR::all();
         $company = CO::first()->get();
         return view('pages/artikel', [
@@ -21,9 +20,11 @@ class ArtikelController extends Controller
 
     public function show($id) {
         $articles = AR::findOrFail($id);
+        $company = CO::first()->get();
         return view('pages/detailArtikel', [
             'data' => $articles,
-            'json' => json_encode($articles->get())
+            'json' => json_encode($articles->get()),
+            'company' => $company
         ]);
     }
 
